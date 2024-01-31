@@ -21,7 +21,8 @@ class cadastrarUsuario extends Controller
         $cpfUsuario = $request->input('cpf');
         $emailUsuario = $request->input('email');
         $adicionarTarefa =$request->input('tarefa');
-  
+        $dataTarefa =$request->input('dataTarefa');
+        $horaTarefa = $request->input('horaTarefa');
 
         $model = new cadastrarUsuarioModel();
         $model->nome = $nomeUsuario;
@@ -29,6 +30,8 @@ class cadastrarUsuario extends Controller
         $model->cpfUsuario = $cpfUsuario;
         $model->emailUsuario = $emailUsuario;
         $model->adicionarTarefa = $adicionarTarefa;
+        $model->dataTarefa = $dataTarefa;
+        $model->horaTarefa = $horaTarefa;
         $model->save();//armazenar os dados no bd
 
         return redirect('/cadastrar');

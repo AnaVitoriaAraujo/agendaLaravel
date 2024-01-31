@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('telefone',13);
             $table->string('cpfUsuario',13);
             $table->string('emailUsuario',100);
-            $table->string('adicionarTarefa',100);           
+            $table->string('adicionarTarefa',100);
+            $table->string('dataTarefa',11);
+            $table->string('horaTarefa',5);           
             $table->timestamps();
         });
     }
