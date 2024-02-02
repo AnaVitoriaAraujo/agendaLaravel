@@ -12,7 +12,7 @@ class cadastrarUsuario extends Controller
         $dados = cadastrarUsuarioModel::all();
 
 
-        return view('paginas.cadastrar')->With('dados', $dados);
+        return view('paginas.cadastrar', compact('dados'));
     }//fim do metodo index
 
     public function store(Request $request){
@@ -20,6 +20,7 @@ class cadastrarUsuario extends Controller
         $telefoneUsuario = $request->input('telefone');
         $cpfUsuario = $request->input('cpf');
         $emailUsuario = $request->input('email');
+        $senha = $request->input('senha');
         $adicionarTarefa =$request->input('tarefa');
         $dataTarefa =$request->input('dataTarefa');
         $horaTarefa = $request->input('horaTarefa');
@@ -29,11 +30,12 @@ class cadastrarUsuario extends Controller
         $model->telefone = $telefoneUsuario;
         $model->cpfUsuario = $cpfUsuario;
         $model->emailUsuario = $emailUsuario;
+        $model->senha = $senha;
         $model->adicionarTarefa = $adicionarTarefa;
         $model->dataTarefa = $dataTarefa;
         $model->horaTarefa = $horaTarefa;
         $model->save();//armazenar os dados no bd
 
-        return redirect('/cadastrar');
+        return redirect('cadastrar');
     }//fim do metodo store
 }//fim da classe
